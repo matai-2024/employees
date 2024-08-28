@@ -4,7 +4,6 @@ import * as Path from 'node:path'
 import employeeRoutes from './routes/employees.ts'
 
 const server = express()
-
 server.use(express.json())
 
 server.use('/api/v1/employees', employeeRoutes)

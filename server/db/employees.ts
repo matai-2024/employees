@@ -2,26 +2,31 @@ import connection from './connection.ts'
 
 const db = connection
 
-export async function getAllAllergies() {
-  return await db('employees_allergies')
-  .join('allergies','allergies.id','employees_allergies.allergy_id')
-  .join('employees','employees.id','employees_allergies.employee_id')
-  .groupBy('')
-  .orderBy('')
-  .select('employees.name as name', db.raw('ARRAY_AGG (tags.label) tags'))
-  .first()
-}
-
 export async function getAllEmployees() {
-  // return await db('employees').select()
-  return await db('employees_allergies')
-  .join('allergies','allergies.id','employees_allergies.allergy_id')
-  .join('employees','employees.id','employees_allergies.employee_id')
-  .groupBy('')
-  .orderBy('')
-  .select('employees.name as name', db.raw('ARRAY_AGG (tags.label) tags'))
-  .first()
-}
+  console.log('Interact with db')
 
-// .join('employees_allergies','employees.id','employees_allergies.employee_id')
-// .join('allergies','allergies.id','employees_allergies.allergy_id')
+  //Organise and select return vals
+  return await db('employees')
+    .select('employees.name', 'employees.id', 'employees.title', 'employees.role', 'employees.dob')
+    .join('employees_allergies', 'employees.id', 'employees_allergies.employee_id')
+    .join('allergies', 'employees_allergies.allergy_id', 'allergies.id')
+    .groupBy('employees.name')
+    .orderBy('employees.name')
+
+    //Define output
+    .then(rows => {
+      const result = rows.map(async (row) => {
+        return {
+        id: row.employee_id,
+        name: row.name,
+        title: row.title,
+        role: row.role,
+        dob: row.dob,
+        allergies: await db('allergies')
+          .join('employees_allergies', 'allergies.id', 'employees_allergies.allergy_id')
+          .where('employees_allergies.employee_id', row.id)
+          .pluck('allergy')
+        }})
+      return Promise.all(result)
+    })
+}

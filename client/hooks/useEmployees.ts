@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getEmployees } from '../apis/employees.ts'
 
 export function useEmployees() {
+  console.log('Update useQuery...')
   const query = useQuery({ queryKey: ['employees'], queryFn: getEmployees })
   return {
     ...query,

@@ -8,8 +8,8 @@ export async function getAllEmployees() {
   //Organise and select return vals
   return await db('employees')
     .select('employees.name', 'employees.id', 'employees.title', 'employees.role', 'employees.dob')
-    .join('employees_allergies', 'employees.id', 'employees_allergies.employee_id')
-    .join('allergies', 'employees_allergies.allergy_id', 'allergies.id')
+    .leftJoin('employees_allergies', 'employees.id', 'employees_allergies.employee_id')
+    .leftJoin('allergies', 'employees_allergies.allergy_id', 'allergies.id')
     .groupBy('employees.name')
     .orderBy('employees.name')
 

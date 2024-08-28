@@ -1,6 +1,7 @@
-import { Employees as Data } from "../../models/employees";
+import { useEmployees } from "../hooks/useEmployees";
 
-export default function Employees(data: Data) {
+export default function Employees() {
+  const { isPending, isError, data } = useEmployees()
   return (
     <div>
       meow

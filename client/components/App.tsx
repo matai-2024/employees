@@ -1,9 +1,5 @@
-import { useEmployees } from '../hooks/useEmployees.ts'
-
 function App() {
   console.log('Call hook...')
-  const { data } = useEmployees()
-
   return (
     <>
       <div className="app">

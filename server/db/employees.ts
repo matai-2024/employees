@@ -7,7 +7,7 @@ export async function getIds() {
 }
 
 export async function getAllergies() {
-  return await db('employees').select('allergies')
+  return await db('allergies').select('allergy')
 }
 
 export async function getAllEmployees() {

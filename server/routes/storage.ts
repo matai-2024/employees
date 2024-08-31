@@ -13,7 +13,7 @@ async function generateId() {
   //Finds highest id# and returns the value + 1
   const ids = await getIds()
   const arr = ids.map((obj) => obj.id)
-  arr.reduce((a, obj) => obj.id > a ? obj.id : a, 0)
+  arr.reduce((a, obj) => obj.id, 0)
   const newId = (Math.max(...arr) + 1)
   return newId
 }

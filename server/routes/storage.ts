@@ -30,15 +30,15 @@ export async function manageAllergies(data) {
   let newestId = currAllergies.length
 
   newAllergiesArr.map(async (allergy: string) => {
-    if(currAllergiesArr.indexOf(allergy) == -1) {
-      console.log('allergy does not exist')
+    console.log(currAllergiesArr.indexOf(allergy))
+    if(currAllergiesArr.indexOf(allergy) === -1) {
+      console.log('hello?')
       newestId++
       await addNewAllergy({ id: newestId, allergy: allergy })
       await updateEmployeesAllergies({ employee_id: data.id, allergy_id: newestId})
     } else {
-      (`allergy exists: ${data.id}, ${currAllergiesArr.indexOf(allergy) == -1}`)
-      //send IDs to employees_allergy table
-      await updateEmployeesAllergies({employee_id: data.id, allergy_id: currAllergiesArr.indexOf(allergy)})
+      console.log('hello2')
+      await updateEmployeesAllergies({employee_id: data.id, allergy_id: currAllergiesArr.indexOf(allergy)+1 })
     }
   })
   }

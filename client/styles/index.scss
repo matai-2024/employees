@@ -4,3 +4,24 @@ html,
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.employeeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 75vw;
+  max-width: 600px;
+
+  input {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

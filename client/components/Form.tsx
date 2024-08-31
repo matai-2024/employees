@@ -1,7 +1,7 @@
 export default function Form() {
   return (
-    <div>
-      <form>
+    <div className="formContainer">
+      <form className="employeeForm">
         <label htmlFor="name">Full Name:</label>
         <input type="text" id="name"></input>
         <label htmlFor="title">Title:</label>

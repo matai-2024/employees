@@ -1,6 +1,7 @@
 export default function Form() {
   return (
     <div className="formContainer">
+      <h1>Add a new employee</h1>
       <form className="employeeForm">
         <label htmlFor="name">Full Name:</label>
         <input type="text" id="name"></input>

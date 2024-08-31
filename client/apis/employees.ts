@@ -9,3 +9,10 @@ export function getEmployees(): Promise<Employees[]> {
     return res.body
   })
 }
+
+export function addEmployee(data) {
+  console.log('API client reached')
+  return request.post(rootUrl + `/form`).send(data).then((res) => {
+    return res.body
+  })
+}

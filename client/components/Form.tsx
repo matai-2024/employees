@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useAddEmployee } from "../hooks/useAddEmployee"
 
 export default function Form() {
 
@@ -10,6 +11,8 @@ export default function Form() {
     allergies: ''
   })
 
+  const addEmployee = useAddEmployee()
+
   function handleChange(e: React.FormEvent<HTMLFormElement>) {
     setFormData({...formData, [e.target.id]: e.target.value})
   }
@@ -17,6 +20,7 @@ export default function Form() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     console.log(formData)
+    addEmployee.mutate(formData)
   }
 
   return (

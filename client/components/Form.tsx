@@ -17,6 +17,7 @@ export default function Form() {
         <input type="date" id="dob"></input>
         <label htmlFor="allergies">Allergies:</label>
         <input id="allergies" type="text"></input>
+        <input type="submit" value="Submit"></input>
       </form>
     </div>
   )

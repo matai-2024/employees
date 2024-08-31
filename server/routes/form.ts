@@ -1,13 +1,13 @@
 import express from 'express'
-import { Employees } from '../../models/employees'
+import { formatData, manageAllergies } from './storage'
 
 const router = express.Router()
 
 router.post('/', async (req, res) => {
   try {
-    console.log('made it to back-end routes')
-    console.log(req.body)
-    res.send(201)
+    manageAllergies(req.body)
+    const newEmployee = formatData(req.body)
+    res.sendStatus(201)
   } catch (err) {
     console.log(err)
     res.sendStatus(500).send(`Error retreiving employees: ${err}`)

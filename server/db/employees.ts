@@ -2,6 +2,14 @@ import connection from './connection.ts'
 
 const db = connection
 
+export async function getIds() {
+  return await db('employees').select('id')
+}
+
+export async function getAllergies() {
+  return await db('employees').select('allergies')
+}
+
 export async function getAllEmployees() {
   console.log('Interact with db')
 

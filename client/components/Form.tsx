@@ -1,8 +1,8 @@
 export default function Form() {
   return (
-    <div className="formContainer">
+    <div className="form-container">
       <h1>Add a new employee</h1>
-      <form className="employeeForm">
+      <form className="employee-form">
         <label htmlFor="name">Full Name:</label>
         <input type="text" id="name"></input>
         <label htmlFor="title">Title:</label>

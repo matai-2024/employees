@@ -20,12 +20,15 @@ export default function Employees() {
     <section>
         { data.map((employee) => {
           return(
-          <div key={employee.id}>
+          <div className='employee-container' key={employee.id}>
+            <img src={`../../images/${employee.id}.png`} alt="user"></img>
+            <div>
             <h6>{employee.name}</h6>
             <p>Title: {employee.title}</p>
             <p>Role: {employee.role}</p>
             <p>DOB: {String(employee.dob)}</p>
             <p>Allergies: {employee.allergies.join(', ')}</p>
+            </div>
           </div>
         )}) }
     </section>

@@ -4,10 +4,9 @@ import Employees from './components/Employees'
 import Form from './components/Form'
 
 export const routes = createRoutesFromElements(
-
   <Route path="/" element={<App />}>
     <Route index element={<Employees />} />
-    <Route path='' element={<Form />} />
+    <Route path='form' element={<Form />} />
   </Route>
 )
 

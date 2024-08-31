@@ -17,7 +17,7 @@ export async function getAllEmployees() {
     .then(rows => {
       const result = rows.map(async (row) => {
         return {
-        id: row.employee_id,
+        id: row.id,
         name: row.name,
         title: row.title,
         role: row.role,

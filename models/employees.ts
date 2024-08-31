@@ -1,4 +1,6 @@
-export interface newEmployee {
+
+export interface Employees {
+  id: number
   name: string
   title: string
   role: string
@@ -6,6 +8,10 @@ export interface newEmployee {
   allergies: string[]
 }
 
-export interface Employees extends newEmployee {
-  id: number
+export interface NewEmployee {
+  name: string
+  title: string
+  role: string
+  dob: Date
+  allergies: string
 }

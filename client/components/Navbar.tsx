@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Loading() {
   return (
-    <section>
+    <section className="nav">
       <ul>
         <li>
           <Link to="/">

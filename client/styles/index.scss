@@ -2,7 +2,37 @@
 
 html, 
 body {
+  margin: 0;
+  padding: 0;
   font-family: 'Montserrat', sans-serif;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-inline: 5em;
+  background-color: rgb(186, 235, 250);
+  height: 5em;
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+    margin-inline: 2em;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
 }
 
 .formContainer {

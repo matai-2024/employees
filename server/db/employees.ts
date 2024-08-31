@@ -38,3 +38,15 @@ export async function getAllEmployees() {
       return Promise.all(result)
     })
 }
+
+export async function addNewEmployee(data) {
+  await db('employees').insert(data)
+}
+
+export async function addNewAllergy(data) {
+  await db('allergies').insert(data)
+}
+
+export async function updateEmployeesAllergies(data) {
+  await db('employees_allergies').insert(data)
+}

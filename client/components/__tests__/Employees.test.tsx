@@ -25,20 +25,20 @@ const fakeEmployees = [
 
 describe('Employees Component', () => {
   it('An employee renders to the page with their name', async () => {
-    const expectedHeading = 'Employees'
     //nock the API call
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     //render front-end route
     const screen = renderRoute('/')
-    const employeeName = await screen.findByRole('heading', { level: 1 })
-    console.log(employeeName.textContent)
-    expect(employeeName.textContent).toBe(expectedHeading)
+    const employeeName = await screen.findByText('Fakey Jackson')
+    expect(employeeName.textContent).toBe('Fakey Jackson')
   })
-  // it("An employee's title renders", () => {
-  //   renderRoute('/')
-  //   const employeeName = screen.getByText('Title:*')
-  //   expect(employeeName.textContent).toBeInTheDocument()
-  // })
+  it('An employee renders to the page with their name', async () => {
+    const expectedHeading = 'Fakey Jackson'
+    nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
+    const screen = renderRoute('/')
+    const title = await screen.findByText('Title: Assistant')
+    expect(title.textContent).toBe('Title: Assistant')
+  })
   // it("An employee's role renders", () => {
   //   renderRoute('/')
   //   const employeeName = screen.getByText('Role:*')

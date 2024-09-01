@@ -29,29 +29,31 @@ describe('Employees Component', () => {
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     //render front-end route
     const screen = renderRoute('/')
-    const employeeName = await screen.findByText('Fakey Jackson')
-    expect(employeeName.textContent).toBe('Fakey Jackson')
+    const employeeName = await screen.findByText('Fakey Jackson') //Employee 1
+    expect(employeeName).toBeInTheDocument()
   })
-  it('An employee renders to the page with their name', async () => {
-    const expectedHeading = 'Fakey Jackson'
+  it("An employee's title renders", async () => {
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     const screen = renderRoute('/')
-    const title = await screen.findByText('Title: Assistant')
-    expect(title.textContent).toBe('Title: Assistant')
+    const title = await screen.findByText('Title: Assistant') //Employee 2
+    expect(title).toBeInTheDocument()
   })
-  // it("An employee's role renders", () => {
-  //   renderRoute('/')
-  //   const employeeName = screen.getByText('Role:*')
-  //   expect(employeeName.textContent).toBeInTheDocument()
-  // })
-  // it("An employee's DOB renders", () => {
-  //   renderRoute('/')
-  //   const employeeName = screen.getByText('DOB:*')
-  //   expect(employeeName.textContent).toBeInTheDocument()
-  // })
-  // it("An employee's allergies render to the page with a comma and space separating them", () => {
-  //   renderRoute('/')
-  //   const employeeName = screen.getByRole('heading', { level: 2 })
-  //   expect(employeeName.textContent).toBeInTheDocument()
-  // })
+  it("An employee's role renders", async () => {
+    nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
+    const screen = renderRoute('/')
+    const title = await screen.findByText('Role: Super Admin') //Employee 1
+    expect(title).toBeInTheDocument()
+  })
+  it("An employee's DOB renders", async () => {
+    nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
+    const screen = renderRoute('/')
+    const title = await screen.findByText('DOB: 1989-12-03') //Employee 2
+    expect(title).toBeInTheDocument()
+  })
+  it("An employee's allergies render to the page with appropriate separation", async () => {
+    nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
+    const screen = renderRoute('/')
+    const title = await screen.findByText('Allergies: dogs, cats, people') //Employee 1
+    expect(title).toBeInTheDocument()
+  })
 })

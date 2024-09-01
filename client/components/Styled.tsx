@@ -32,18 +32,18 @@ export const ErrorMessage = styled.div`
   color: red;
   cursor: pointer;
 `
-interface Props {
-  selected: string
-}
-export const RadioLabel = styled.label`
-  padding: 5px;
-  ${(props: Props) =>
-    props.selected &&
-    `
-    border-radius: 15%;
-    background-color: grey;
-  `}
-`
+// interface Props {
+//   selected: string
+// }
+// export const RadioLabel = styled.label`
+//   padding: 5px;
+//   ${(props: Props) =>
+//     props.selected &&
+//     `
+//     border-radius: 15%;
+//     background-color: grey;
+//   `}
+// `
 
 export const Radio = styled.input.attrs({ type: 'radio' })`
   display: none;

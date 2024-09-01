@@ -50,3 +50,8 @@ export async function addNewAllergy(data) {
 export async function updateEmployeesAllergies(data) {
   await db('employees_allergies').insert(data)
 }
+
+export async function deleteEmployeeById(id) {
+  console.log("Employee deleted")
+  await db('employees').where({ id }).delete(id)
+}

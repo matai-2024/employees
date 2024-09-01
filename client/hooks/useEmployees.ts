@@ -10,6 +10,22 @@ export function useEmployees() {
   }
 }
 
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { removeEmployee } from '../apis/employees'
+
+export function useDeleteEmployee() {
+  console.log('Mutation called...')
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async (id) => {
+      return await removeEmployee(id)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['employees']})
+    }
+  })
+}
+
 // Query functions go here e.g. useAddFruit
 /* function useAddFruit() {
   return useFruitsMutation(addFruit)

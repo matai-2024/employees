@@ -1,9 +1,11 @@
+import { useDeleteEmployee } from "../hooks/useEmployees";
 import { useEmployees } from "../hooks/useEmployees";
 import { IfAuthenticated } from "./Authenticated";
 import Loading from "./Loading";
 
 export default function Employees() {
   const { isPending, isError, error, data } = useEmployees()
+  const del = useDeleteEmployee()
 
   if (isPending) {
     return <Loading />
@@ -18,12 +20,11 @@ export default function Employees() {
   }
 
   function handleDelete(e:  React.MouseEvent<HTMLButtonElement>) {
-    //In future, I want Super Admins ONLY be able to delete. For now, just me is fine
-    console.log(e.target.name)
+    //In future, I want Super Admins ONLY be able to delete.
+    del.mutate(e.target.name)
   }
 
   function handleEdit(e:  React.MouseEvent<HTMLButtonElement>) {
-    
   }
 
   return (

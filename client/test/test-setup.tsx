@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/vitest'
 import { createMemoryRouter, RouterProvider } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import userEvent from '@testing-library/user-event'
-import { routes } from '../client/router'
+import { routes } from '../router'
 
 declare module 'vitest' {
   interface JestAssertion<T = any>

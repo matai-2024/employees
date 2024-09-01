@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
   try {
     console.log('Make request to interact with db')
     const employees: Employees[] = await getAllEmployees()
+    console.log(employees)
     res.json(employees)
   } catch (err) {
     console.log(err)

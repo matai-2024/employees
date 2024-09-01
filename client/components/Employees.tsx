@@ -24,12 +24,16 @@ export default function Employees() {
 
   return (
     <section>
+      <h1>Employees</h1>
       {data.map((employee) => {
         return (
           <div className="employee-container" key={employee.id}>
-            <img src={`../../images/${employee.id}.png`} alt="user"></img>
+            <img
+              src={`../../images/${employee.id}.webp`}
+              alt={`${employee.name}'s profile`}
+            ></img>
             <div>
-              <h6>{employee.name}</h6>
+              <h2>{employee.name}</h2>
               <p>Title: {employee.title}</p>
               <p>Role: {employee.role}</p>
               <p>DOB: {String(employee.dob)}</p>

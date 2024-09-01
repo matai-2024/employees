@@ -23,7 +23,9 @@ const fakeEmployees = [
   },
 ]
 
-describe('Employees Component', () => {
+/* TESTS */
+
+describe('Employee data renders to page', () => {
   it('An employee renders to the page with their name', async () => {
     //nock the API call
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)

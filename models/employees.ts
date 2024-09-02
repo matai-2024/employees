@@ -8,11 +8,11 @@ export interface Employees {
   allergies: string[]
 }
 
-export interface NewEmployeeRequest {
-  name: string
+export interface NewEmployeeRequest { 
+  name: string 
   title: string
   role: string
-  dob: Date
+  dob: string
   allergies: string
 }
 export interface NewEmployee {

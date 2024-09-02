@@ -55,4 +55,5 @@ export async function updateEmployeesAllergies(data: EmployeesAllergies) {
 export async function deleteEmployeeById(id: number) {
   console.log("Employee deleted")
   await db('employees').where({ id }).delete()
+  await db('employees_allergies').where({ employee_id: id }).delete()
 }

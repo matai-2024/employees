@@ -9,9 +9,19 @@ export interface Employees {
 }
 
 export interface NewEmployee {
+  id: number
   name: string
   title: string
   role: string
   dob: Date
-  allergies: string
+}
+
+export interface NewAllergy {
+  id: number
+  allergy: string
+}
+
+export interface EmployeesAllergies {
+  employee_id: number
+  allergy_id: number
 }

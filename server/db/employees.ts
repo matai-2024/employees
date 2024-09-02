@@ -1,3 +1,4 @@
+import { EmployeesAllergies, NewAllergy, NewEmployee } from '../../models/employees.ts'
 import connection from './connection.ts'
 
 const db = connection
@@ -39,19 +40,19 @@ export async function getAllEmployees() {
     })
 }
 
-export async function addNewEmployee(data) {
+export async function addNewEmployee(data: NewEmployee) {
   await db('employees').insert(data)
 }
 
-export async function addNewAllergy(data) {
+export async function addNewAllergy(data: NewAllergy) {
   await db('allergies').insert(data)
 }
 
-export async function updateEmployeesAllergies(data) {
+export async function updateEmployeesAllergies(data: EmployeesAllergies) {
   await db('employees_allergies').insert(data)
 }
 
-export async function deleteEmployeeById(id) {
+export async function deleteEmployeeById(id: number) {
   console.log("Employee deleted")
-  await db('employees').where({ id }).delete(id)
+  await db('employees').where({ id }).delete()
 }

@@ -1,6 +1,6 @@
 # Employees
 
-A project I'm using to practice multi-input forms in react.
+A project I'm using to practice multi-input forms in react. Dokku :)
 
 ## To do:
 - [ ] Once the form is submitted, redirect the user to a page (or re-render) that says their data has been submitted.

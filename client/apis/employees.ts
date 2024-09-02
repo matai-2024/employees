@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Employees } from '../../models/employees'
+import { Employees, NewEmployeeRequest } from '../../models/employees'
 
 const rootUrl = '/api/v1'
 
@@ -16,7 +16,7 @@ export function removeEmployee(id: string) {
   })
 }
 
-export function addEmployee(data) {
+export function addEmployee(data: NewEmployeeRequest) {
   return request.post(rootUrl + `/form`).send(data).then((res) => {
     return res.body
   })

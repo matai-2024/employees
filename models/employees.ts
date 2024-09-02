@@ -8,6 +8,13 @@ export interface Employees {
   allergies: string[]
 }
 
+export interface NewEmployeeRequest {
+  name: string
+  title: string
+  role: string
+  dob: Date
+  allergies: string
+}
 export interface NewEmployee {
   id: number
   name: string

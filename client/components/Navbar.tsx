@@ -16,31 +16,33 @@ export default function Loading() {
 
   return (
     <section className="nav">
-      <ul>
-        <li>
-          <Link to="/">
-          Employees
-          </Link>
-        </li>
-        <li>
-          <Link to="/form">
-            Add new employee
-          </Link>
-        </li>
-        <NavGroup>
-        <IfAuthenticated>
-          <NavButton onClick={handleSignOut}>Sign out</NavButton>
+        <div className="nav-left">
+          <li>
+            <Link to="/">
+            Employees
+            </Link>
+          </li>
+          <li>
+            <Link to="/form">
+              Add new employee
+            </Link>
+          </li>
+        </div>
+        <div className="nav-right">
+          <NavGroup>
+          <IfAuthenticated>
           {user && (
-            <p>
-              Signed in as: {user.nickname}
-            </p>
-          )}
-        </IfAuthenticated>
-        <IfNotAuthenticated>
-          <NavButton onClick={handleSignIn}>Sign in</NavButton>
-        </IfNotAuthenticated>
-      </NavGroup>
-      </ul>
+              <p className="signed-in-as-text">
+                Signed in as: {user.nickname}
+              </p>
+            )}
+            <button className="log-btn" onClick={handleSignOut}>Sign out</button>
+          </IfAuthenticated>
+            <IfNotAuthenticated>
+              <button className="log-btn" onClick={handleSignIn}>Sign in</button>
+            </IfNotAuthenticated>
+          </NavGroup>
+        </div>
     </section>
   )
 }

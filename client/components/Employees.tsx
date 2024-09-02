@@ -24,29 +24,33 @@ export default function Employees() {
 
   return (
     <section>
-      <h1>Employees</h1>
+      <h1>Employee Overview</h1>
       {data.map((employee) => {
         return (
           <div className="employee-container" key={employee.id}>
-            <img
-              src={`../../images/${employee.id}.webp`}
-              alt={`${employee.name}'s profile`}
-            ></img>
+            <div className="dp-btns">
+              <img
+                src={`../../images/${employee.id}.webp`}
+                alt={`${employee.name}'s profile`}
+              ></img>
+              <div>
+              <IfAuthenticated>
+                <button className="edit-del-btns" onClick={handleEdit} name={String(employee.id)}>
+                  Edit
+                </button>
+                <button className="edit-del-btns" onClick={handleDelete} name={String(employee.id)}>
+                  Delete
+                </button>
+              </IfAuthenticated>
+              </div>
+            </div>
             <div>
               <h2>{employee.name}</h2>
-              <p>Title: {employee.title}</p>
-              <p>Role: {employee.role}</p>
-              <p>DOB: {String(employee.dob)}</p>
-              <p>Allergies: {employee.allergies.join(', ')}</p>
+              <p><strong>Title:</strong> {employee.title}</p>
+              <p><strong>Role:</strong> {employee.role}</p>
+              <p><strong>DOB:</strong> {String(employee.dob)}</p>
+              <p><strong>Allergies:</strong> {employee.allergies.join(', ')}</p>
             </div>
-            <IfAuthenticated>
-              <button onClick={handleEdit} name={String(employee.id)}>
-                Edit
-              </button>
-              <button onClick={handleDelete} name={String(employee.id)}>
-                Delete
-              </button>
-            </IfAuthenticated>
           </div>
         )
       })}

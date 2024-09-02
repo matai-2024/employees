@@ -47,11 +47,11 @@ export default function Form() {
     <div className="form-container">
       <h1>Add a new employee</h1>
       <form onChange={handleChange} onSubmit={handleSubmit} className="employee-form">
-
+        
         <label htmlFor="name">Full Name:</label>
         <input type="text" id="name" value={formData.name}></input>
         <p className="helper-text">{helperText.name}</p>
-
+        
         <label htmlFor="title">Title:</label>
         <input id="title" value={formData.title}></input>
         <p className="helper-text">{helperText.title}</p>
@@ -73,7 +73,7 @@ export default function Form() {
         <input id="allergies" type="text" value={formData.allergies}></input>
         <p className="helper-text">{helperText.allergies}</p>
 
-        <input type="submit" value="Submit"></input>
+        <input className="submit-btn" type="submit" value="Submit"></input>
       </form>
     </div>
   )

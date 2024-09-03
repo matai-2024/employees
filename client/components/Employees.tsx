@@ -30,7 +30,7 @@ export default function Employees() {
           <div className="employee-container" key={employee.id}>
             <div className="dp-btns">
               <img
-                src={`../../images/${employee.id}.webp`}
+                src={`../../public/images/${employee.id}.webp`}
                 alt={`${employee.name}'s profile`}
               ></img>
               <div>

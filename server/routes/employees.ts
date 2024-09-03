@@ -18,9 +18,6 @@ router.get('/', async (req, res) => {
 
 router.delete('/', async (req, res) => {
   try {
-    console.log(req.body)
-    console.log('Making delete request...')
-    console.log(req.body.id)
     await deleteEmployeeById(Number(req.body.id))
     res.sendStatus(200)
   } catch (err) {

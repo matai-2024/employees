@@ -11,7 +11,7 @@ export function getEmployees(): Promise<Employees[]> {
 
 export function removeEmployee(id: string) {
   console.log(`ID: ${id}`)
-  return request.delete(rootUrl + '/employees').send({id: id}).then((res) => {
+  return request.delete(rootUrl + `/employees`).send({id: id}).then((res) => {
     return res.body
   })
 }

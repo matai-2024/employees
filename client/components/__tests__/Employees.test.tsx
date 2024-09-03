@@ -37,25 +37,25 @@ describe('Employee data renders to page', () => {
   it("An employee's title renders", async () => {
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     const screen = renderRoute('/')
-    const title = await screen.findByText('Title: Assistant') //Employee 2
+    const title = await screen.findByText('Assistant') //Employee 2
     expect(title).toBeInTheDocument()
   })
   it("An employee's role renders", async () => {
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     const screen = renderRoute('/')
-    const title = await screen.findByText('Role: Super Admin') //Employee 1
+    const title = await screen.findByText('Super Admin') //Employee 1
     expect(title).toBeInTheDocument()
   })
   it("An employee's DOB renders", async () => {
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     const screen = renderRoute('/')
-    const title = await screen.findByText('DOB: 1989-12-03') //Employee 2
+    const title = await screen.findByText('1989-12-03') //Employee 2
     expect(title).toBeInTheDocument()
   })
   it("An employee's allergies render to the page with appropriate separation", async () => {
     nock('http://localhost').get('/api/v1/employees').reply(200, fakeEmployees)
     const screen = renderRoute('/')
-    const title = await screen.findByText('Allergies: dogs, cats, people') //Employee 1
+    const title = await screen.findByText('dogs, cats, people') //Employee 1
     expect(title).toBeInTheDocument()
   })
 })

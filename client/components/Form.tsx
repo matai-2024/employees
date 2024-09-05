@@ -1,27 +1,26 @@
-import { useState } from "react"
-import { useAddEmployee } from "../hooks/useAddEmployee"
+import { useState } from 'react'
+import { useAddEmployee } from '../hooks/useAddEmployee'
 
 export default function Form() {
-
   const [formData, setFormData] = useState({
     name: '',
     title: '',
     role: '',
     dob: '',
-    allergies: ''
+    allergies: '',
   })
   const [helperText, setHelperText] = useState({
     name: '',
     title: '',
     role: '',
     dob: '',
-    allergies: ''
+    allergies: '',
   })
 
   const addEmployee = useAddEmployee()
 
   function handleChange(e: React.FormEvent<HTMLFormElement>) {
-    setFormData({...formData, [e.target.id]: e.target.value})
+    setFormData({ ...formData, [e.target.id]: e.target.value })
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -29,29 +28,43 @@ export default function Form() {
     let isValid = true
     //Check if any are empty
     for (const [key, value] of Object.entries(formData)) {
-      switch(value) {
+      switch (value) {
         case '':
           helperText[key] = `*This section is required.`
           isValid = false
-          break;
-        default: 
+          break
+        default:
           helperText[key] = ''
       }
     }
 
-    if (!isValid) setHelperText({...helperText}) //Re-render
-    if (isValid) addEmployee.mutate(formData) //Send to db
+    if (!isValid) setHelperText({ ...helperText }) //Re-render
+    if (isValid) {
+      addEmployee.mutate(formData)
+
+      //Instead of resetting form data, navigate to a 'thank you' page
+      setFormData({
+        name: '',
+        title: '',
+        role: '',
+        dob: '',
+        allergies: '',
+      })
+    } //Send to db
   }
 
   return (
     <div className="form-container">
       <h1>Add a new employee</h1>
-      <form onChange={handleChange} onSubmit={handleSubmit} className="employee-form">
-        
+      <form
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        className="employee-form"
+      >
         <label htmlFor="name">Full Name:</label>
         <input type="text" id="name" value={formData.name}></input>
         <p className="helper-text">{helperText.name}</p>
-        
+
         <label htmlFor="title">Title:</label>
         <input id="title" value={formData.title}></input>
         <p className="helper-text">{helperText.title}</p>

@@ -34,7 +34,7 @@ describe('Deleting an employee', () => {
       getAccessTokenSilently: vi.fn(async () => ACCESS_TOKEN),
     } as any)
     //nock (persist)
-   nock('http://localhost')
+    nock('http://localhost')
       .get('/api/v1/employees')
       .reply(200, fakeEmployee)
       .persist()
@@ -48,14 +48,13 @@ describe('Deleting an employee', () => {
     })
 
     expect(deleteButton).toBeVisible()
-    // expect(initialScope.isDone()).toBe(true)
 
     //create a scope for this nock
     const deleteScope = nock('http://localhost')
-      .delete('/api/v1/employees/1')
+      .delete('/api/v1/employees')
       .reply(200)
 
-    await user.click(deleteButton) 
+    await user.click(deleteButton)
     // click the button and expect the nock scope to be done
     expect(deleteScope.isDone()).toBe(true)
   })

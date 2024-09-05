@@ -34,22 +34,38 @@ export default function Employees() {
                 alt={`${employee.name}'s profile`}
               ></img>
               <div>
-              <IfAuthenticated>
-                <button className="edit-del-btns" onClick={handleEdit} name={String(employee.id)}>
-                  Edit
-                </button>
-                <button className="edit-del-btns" onClick={handleDelete} name={String(employee.id)}>
-                  Delete
-                </button>
-              </IfAuthenticated>
+                <IfAuthenticated>
+                  <button
+                    className="edit-del-btns"
+                    onClick={handleEdit}
+                    name={String(employee.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="edit-del-btns"
+                    onClick={handleDelete}
+                    name={String(employee.id)}
+                  >
+                    Delete
+                  </button>
+                </IfAuthenticated>
               </div>
             </div>
             <div>
               <h2>{employee.name}</h2>
-              <p><strong>Title:</strong> {employee.title}</p>
-              <p><strong>Role:</strong> {employee.role}</p>
-              <p><strong>DOB:</strong> {String(employee.dob)}</p>
-              <p><strong>Allergies:</strong> {employee.allergies.join(', ')}</p>
+              <p>
+                <strong>Title:</strong> {employee.title}
+              </p>
+              <p>
+                <strong>Role:</strong> {employee.role}
+              </p>
+              <p>
+                <strong>DOB:</strong> {String(employee.dob)}
+              </p>
+              <p>
+                <strong>Allergies:</strong> {employee.allergies.join(', ')}
+              </p>
             </div>
           </div>
         )
